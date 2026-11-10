@@ -16,6 +16,20 @@ const URL = pathToFileURL(path.join(ROOT, 'docs/play/index.html')).href;
 const ok = [], bad = [];
 const t = (name, cond, extra = '') => (cond ? ok : bad).push(name + (extra ? ' [' + extra + ']' : ''));
 
+// Deep links resolve through norm(), which used to delete accented letters
+// instead of folding them: a link for "meniere" could never reach a remedy
+// written "Ménière" ("mnire"). Checked against both copies of the source, so the
+// template and the built page cannot drift apart on it.
+{
+  const fs = await import('node:fs');
+  const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const tpl = read('pipeline/app_template.html');
+  const built = read('docs/play/index.html');
+  const line = (src) => (src.match(/function norm\(s\) \{[^\n]*/) || [''])[0];
+  t('norm() folds accents before stripping', /normalize\('NFD'\)/.test(line(tpl)), line(tpl).slice(0, 60));
+  t('the built page carries the same norm()', line(tpl) === line(built));
+}
+
 const browser = await puppeteer.launch({
   executablePath: process.env.CHROME || '/usr/local/bin/chromium',
   args: ['--no-sandbox', '--disable-gpu', '--allow-file-access-from-files', '--hide-scrollbars'],

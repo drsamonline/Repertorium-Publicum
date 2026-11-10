@@ -1579,7 +1579,11 @@ input[type=checkbox]{width:15px;height:15px}
   }
 
   /* ── 14 · deep links for a rubric and a remedy ────────────────────── */
-  function norm(s) { return String(s).toLowerCase().replace(/[^a-z]/g, ''); }
+  /* Fold before stripping: a deep link for "meniere" could never resolve to a
+     remedy written "Ménière", because the accented letters were deleted
+     rather than folded — "Ménière" became "mnire" and the link "meniere"
+     became "meniere". */
+  function norm(s) { return String(s == null ? '' : s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]/g, ''); }
 
   function rubricModal(id) {
     var r = BYID.get(id); if (!r) return;
