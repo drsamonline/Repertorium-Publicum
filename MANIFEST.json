@@ -3,29 +3,29 @@
   "locked": false,
   "files": {
     "README.md": {
-      "sha": "f3a116addab07db819fc057434cdcac766282db7",
-      "producer": "bootstrap@2026-11-04",
-      "class": "generated",
-      "at": "2026-11-04T20:05:26Z"
+      "sha": "2ceab2321e67bc9bd50b3a0a6c896ed014b9a51f",
+      "producer": "human",
+      "class": "hand",
+      "at": "2026-11-16T13:46:17Z"
     },
     "docs/index.html": {
-      "sha": "b6920a02ca15a9ac27889f9fac7255e3cb1477e4",
-      "producer": "bootstrap@2026-11-04",
-      "class": "generated",
-      "at": "2026-11-06T10:53:27Z"
+      "sha": "9e7a9ceca2660b6c8bde261c7271e1bfe8d1cf96",
+      "producer": "human",
+      "class": "hand",
+      "at": "2026-11-16T13:46:17Z"
     },
     "docs/play/index.html": {
-      "sha": "5607885a206a8a0f47ef39de5abdcf1d74c12547",
-      "producer": "bootstrap@2026-11-04",
-      "class": "generated",
-      "at": "2026-11-04T20:05:27Z"
+      "sha": "b1873c3b8cb7b6f55860979598f5a834d5d1103b",
+      "producer": "human",
+      "class": "hand",
+      "at": "2026-11-16T13:46:17Z"
     },
     ".github/workflows/build-apps.yml": {
-      "sha": "205205a7736c86107b88eb0f5a5c7e26df49f4b6",
+      "sha": "55d3c111f1ea6ff6038e9dab3de17a77aeee8902",
       "producer": "bootstrap@2026-11-04",
       "class": "canonical",
-      "at": "2026-11-04T20:05:27Z"
+      "at": "2026-11-16T13:46:17Z"
     }
   },
-  "updated": "2026-11-06T10:53:27Z"
+  "updated": "2026-11-16T13:46:17Z"
 }
